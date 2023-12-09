@@ -1,6 +1,87 @@
+// функцияя для свапа двух колонок большей и меньшей
+function swap(el1, el2) {
+  let temp = el1.style.height;
+  el1.style.height = el2.style.height;
+  el2.style.height = temp;
+}
+
+function disableElement(selector) {
+  document.querySelector(selector).disabled = true;
+}
+
+function enableElement(selector) {
+  document.querySelector(selector).disabled = false;
+}
+
+// Отключает кнопки сортировки, используемые в сочетании с enable, чтобы мы могли отключить их во время сортировки и включить кнопки после нее
+function disableSortingBtns() {
+  disableElement(".bubbleSort");
+  disableElement(".insertionSort");
+  disableElement(".mergeSort");
+  disableElement(".quickSort");
+  disableElement(".selectionSort");
+}
+
+function enableSortingBtns() {
+  enableElement(".bubbleSort");
+  enableElement(".insertionSort");
+  enableElement(".mergeSort");
+  enableElement(".quickSort");
+  enableElement(".selectionSort");
+}
+
+function disableSizeSlider() {
+  disableElement("#arr_sz");
+}
+
+function enableSizeSlider() {
+  enableElement("#arr_sz");
+}
+
+function disableNewArrayBtn() {
+  disableElement(".newArray");
+}
+
+function enableNewArrayBtn() {
+  enableElement(".newArray");
+}
+
+// Искусственная задержка для наглядности и анимации
+function waitforme(milisec) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("");
+    }, milisec);
+  });
+}
+
+let arraySize = document.querySelector("#arr_sz");
+
+// Слушатель событий для обновления колонок на интерфейсе
+arraySize.addEventListener("input", function () {
+  createNewArray(parseInt(arraySize.value));
+});
+
+// Исходный ввод для функции waitforme (260 мс)
+let delay = 260;
+
+// Выбор ползунка скорости из DOM
+let delayElement = document.querySelector("#speed_input");
+
+// Слушатель событий для обновления времени задержки
+delayElement.addEventListener("input", function () {
+  delay = 320 - parseInt(delayElement.value);
+});
+
+// Создание массива для хранения случайно сгенерированных чисел
+let array = [];
+
+// Вызов для отображения колонок при посещении сайта
+createNewArray();
+
 // Генерация массива
 function createNewArray(noOfBars = 60) {
-  // вызываем вспомогательную функцию для удаления старых полос из DOM
+  // вызываем вспомогательную функцию для удаления старых колонок из DOM
   deleteChild();
 
   // создаем массив случайных чисел
@@ -8,7 +89,6 @@ function createNewArray(noOfBars = 60) {
   for (let i = 0; i < noOfBars; i++) {
     array.push(Math.floor(Math.random() * 250) + 1);
   }
-  console.log(array);
 
   const bars = document.querySelector("#bars");
 
@@ -23,7 +103,7 @@ function createNewArray(noOfBars = 60) {
   }
 }
 
-// Вспомогательная функция для удаления всех предыдущих полос, чтобы можно было добавить новые
+// Вспомогательная функция для удаления всех предыдущих колонок, чтобы можно было добавить новые
 function deleteChild() {
   const bar = document.querySelector("#bars");
   bar.innerHTML = "";
@@ -32,9 +112,7 @@ function deleteChild() {
 // Выбор кнопки newArray из DOM и добавление слушателя событий
 const newArray = document.querySelector(".newArray");
 newArray.addEventListener("click", function () {
-  console.log("Из newArray " + arraySize.value);
-  console.log("Из newArray " + delay);
-  enableSortingBtn();
+  enableSortingBtns();
   enableSizeSlider();
   createNewArray(arraySize.value);
 });
