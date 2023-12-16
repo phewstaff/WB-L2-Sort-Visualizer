@@ -1,5 +1,5 @@
 // функцияя для свапа двух колонок большей и меньшей
-function swap(el1, el2) {
+export function swap(el1, el2) {
   let temp = el1.style.height;
   el1.style.height = el2.style.height;
   el2.style.height = temp;
@@ -14,7 +14,7 @@ function enableElement(selector) {
 }
 
 // Отключает кнопки сортировки, используемые в сочетании с enable, чтобы мы могли отключить их во время сортировки и включить кнопки после нее
-function disableSortingBtns() {
+export function disableSortingBtns() {
   disableElement(".bubbleSort");
   disableElement(".insertionSort");
   disableElement(".mergeSort");
@@ -22,7 +22,7 @@ function disableSortingBtns() {
   disableElement(".selectionSort");
 }
 
-function enableSortingBtns() {
+export function enableSortingBtns() {
   enableElement(".bubbleSort");
   enableElement(".insertionSort");
   enableElement(".mergeSort");
@@ -30,24 +30,24 @@ function enableSortingBtns() {
   enableElement(".selectionSort");
 }
 
-function disableSizeSlider() {
+export function disableSizeSlider() {
   disableElement("#arr_sz");
 }
 
-function enableSizeSlider() {
+export function enableSizeSlider() {
   enableElement("#arr_sz");
 }
 
-function disableNewArrayBtn() {
+export function disableNewArrayBtn() {
   disableElement(".newArray");
 }
 
-function enableNewArrayBtn() {
+export function enableNewArrayBtn() {
   enableElement(".newArray");
 }
 
 // Искусственная задержка для наглядности и анимации
-function waitforme(milisec) {
+export function waitforme(milisec) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("");
@@ -63,7 +63,8 @@ arraySize.addEventListener("input", function () {
 });
 
 // Исходный ввод для функции waitforme (260 мс)
-let delay = 260;
+
+export let delay = 260;
 
 // Выбор ползунка скорости из DOM
 let delayElement = document.querySelector("#speed_input");

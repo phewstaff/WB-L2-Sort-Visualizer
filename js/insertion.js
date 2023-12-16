@@ -1,3 +1,14 @@
+import {
+  disableNewArrayBtn,
+  disableSizeSlider,
+  disableSortingBtns,
+  enableNewArrayBtn,
+  enableSizeSlider,
+  enableSortingBtns,
+  waitforme,
+  delay,
+} from "./sorting";
+
 async function insertion() {
   const ele = document.querySelectorAll(".bar");
   // color

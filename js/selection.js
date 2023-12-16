@@ -1,3 +1,15 @@
+import {
+  disableNewArrayBtn,
+  disableSizeSlider,
+  disableSortingBtns,
+  enableNewArrayBtn,
+  enableSizeSlider,
+  enableSortingBtns,
+  waitforme,
+  swap,
+  delay,
+} from "./sorting";
+
 async function selection() {
   const ele = document.querySelectorAll(".bar");
   for (let i = 0; i < ele.length; i++) {

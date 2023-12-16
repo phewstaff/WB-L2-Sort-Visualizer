@@ -1,3 +1,15 @@
+import {
+  disableNewArrayBtn,
+  disableSizeSlider,
+  disableSortingBtns,
+  enableNewArrayBtn,
+  enableSizeSlider,
+  enableSortingBtns,
+  waitforme,
+  swap,
+  delay,
+} from "./sorting";
+
 async function partitionLomuto(ele, l, r) {
   let i = l - 1;
   // выделить цвет для опорного элемента
@@ -25,7 +37,6 @@ async function partitionLomuto(ele, l, r) {
   // небольшая задержка для наглядности
   await waitforme(delay);
   swap(ele[i], ele[r]); // высота опорного элемента
-  console.log(`i = ${i}`, typeof i);
   // выделить цвет
   ele[r].style.background = "pink";
   ele[i].style.background = "green";

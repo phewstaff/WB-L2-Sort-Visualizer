@@ -1,3 +1,15 @@
+import {
+  disableNewArrayBtn,
+  disableSizeSlider,
+  disableSortingBtns,
+  enableNewArrayBtn,
+  enableSizeSlider,
+  enableSortingBtns,
+  waitforme,
+  swap,
+  delay,
+} from "./sorting";
+
 async function bubble() {
   const el = document.querySelectorAll(".bar");
   for (let i = 0; i < el.length - 1; i++) {
